@@ -13,9 +13,13 @@ public class PlayerBulletController2 : MonoBehaviour{
     bool MoveForward=true;
     public int NumberOfTargets;
     private PlayerManager Player;
+    private void Awake() {
+        NumberOfTargets=FindObjectOfType<RoomManager>().Targets.Length;
+    }
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag(Tag.Player).GetComponent<PlayerManager>();
+       
     }
     void Update()
     {
@@ -56,11 +60,9 @@ public class PlayerBulletController2 : MonoBehaviour{
             MoveForward=true;
         }
     }
-    
-    private void OnCollisionEnter(Collision other) {
+    private void OnCollisionEnter(Collision other){
         if (other.gameObject.tag==(Tag.Target)){
             other.gameObject.SendMessage("KillTarget");
-            //other.gameObject.GetComponent<Rigidbody>().AddForce(-Vector3.forward*10,ForceMode.Impulse);
              NumberOfTargets--;
             if (NumberOfTargets==0){
                 Player.FinishRoom();
@@ -69,6 +71,12 @@ public class PlayerBulletController2 : MonoBehaviour{
         }
         if (other.gameObject.tag==(Tag.TargetBullet)){
             Destroy(other.gameObject);
+        }
+    }
+    private void OnTriggerEnter(Collider other) {
+        if (other.gameObject.CompareTag(Tag.Entrance)||other.gameObject.CompareTag(Tag.Exit)){
+            Player.Lose();
+            Destroy(this.gameObject);
         }
     }
 }

@@ -9,15 +9,4 @@ public class RoomManager : MonoBehaviour{
         Targets=GetComponentsInChildren<TargetManager>(); 
         EntrancePostion=transform.Find("Entrance").transform.position;
     }
-    void OnBecameInvisible()
-    {
-        Debug.Log("Room "+this.gameObject.name + "Not Visible");
-        this.gameObject.SetActive(false);
-    }
-    void OnBecameVisible()
-    {
-        Debug.Log("Room "+this.gameObject.name + "Visible");
-
-        this.gameObject.SetActive(true);
-    }
 }

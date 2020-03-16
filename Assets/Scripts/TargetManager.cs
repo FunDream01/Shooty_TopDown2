@@ -7,18 +7,22 @@ public class TargetManager : MonoBehaviour{
     public GameObject Bullet;
     public GameObject TheShootBullet; // the clone bullet
     public bool DidShoot; 
-    public GameObject Root; // Ragdall root
     private Animator animator;
-    public Collider col;
     public ParticleSystem Dlood;
+    public Collider[]colliders;
+    private int State_Idle=0;
+    private int State_Shoot=1;
+    private int State_Death=2;
     void Start(){
         animator=GetComponent<Animator>();
+        colliders=GetComponents<Collider>();
     } 
      void Shoot(){
         if (!DidShoot){
-            animator.SetBool("Shoot",true);
+            animator.SetInteger("State",State_Shoot);
             TheShootBullet= Instantiate(Bullet,transform.position+(Vector3.up*0.5f)+
                 (transform.forward*BulletSpace),Quaternion.identity);
+            TheShootBullet.transform.parent=this.transform;
             DidShoot=true;
         }
     }
@@ -27,18 +31,21 @@ public class TargetManager : MonoBehaviour{
         if (other.CompareTag(Tag.Player)){
             transform.LookAt(other.transform,Vector3.zero*Time.deltaTime);
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
+            if (Physics.Raycast(transform.position+(Vector3.up*0.5f), transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
             {
-                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-                Shoot();
+                Debug.DrawRay(transform.position+(Vector3.up*0.5f), transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+
+                if (hit.transform.CompareTag(Tag.Player))
+                    Shoot();
             }
         }
     }
     public void KillTarget(){
+        foreach(Collider col in colliders){
+            col.enabled=false;
+        }
         Destroy(TheShootBullet);
-        animator.enabled = false;
-        col.enabled = false;
-        Root.gameObject.SetActive(true);
+        animator.SetInteger("State",State_Death);
         Dlood.Play();
         DidShoot=true;
         this.enabled = false;

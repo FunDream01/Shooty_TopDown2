@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour{
-    public float BulletSpace;
     public GameObject Bullet;
     private GameObject TheShootBullet; // the clone bullet
     public float Speed;
@@ -12,28 +11,32 @@ public class PlayerManager : MonoBehaviour{
     public float FastSpeed;
     private Rigidbody Body;
     private int ReachedRoom=0;
-    public LevelManager manager;
-    public Animator animator;
-    private bool DidWin;
-    private int State_shoot=0;
-    private int State_Run=1;
-    private int State_Victory=2;
+    private LevelManager manager;
+    private Animator animator;
+    private bool StopMoving=true;
+    private int State_Idle=0;
+    private int State_shoot=1;
+    private int State_Run=2;
+    private int State_Victory=3;
     
     void Start(){
-        initialSpeed=Speed;
         Body=GetComponent<Rigidbody>();
         manager=FindObjectOfType<LevelManager>();
         animator=GetComponent<Animator>();
-        Shoot();
+        initialSpeed=Speed;
+        PlayerReset();
     }
+    
     void Shoot(){
         animator.SetInteger("State",State_shoot);
         TheShootBullet =Instantiate(Bullet,transform.position+(Vector3.up*0.5f)+
-            (Vector3.forward*BulletSpace),Quaternion.identity);
-        TheShootBullet.GetComponent<PlayerBulletController2>().NumberOfTargets=FindObjectOfType<RoomManager>().Targets.Length;
+            (Vector3.forward),Quaternion.identity);
+        TheShootBullet.transform.parent=this.transform;
+        TheShootBullet.GetComponent<PlayerBulletController2>().NumberOfTargets=
+            FindObjectOfType<RoomManager>().Targets.Length;
     }
     void FixedUpdate(){
-        if (!DidWin){
+        if (!StopMoving){
             animator.SetInteger("State",State_Run);
             Body.MovePosition(transform.position+ Vector3.forward*Speed*Time.deltaTime);
         }
@@ -43,33 +46,49 @@ public class PlayerManager : MonoBehaviour{
         Speed=FastSpeed;
     }
     void PlayerReset(){
+        Speed=initialSpeed;
+        StopMoving=true;
         this.transform.position=FindObjectOfType<RoomManager>().EntrancePostion;
         Shoot();
+        Invoke("StartRunning",1f);
+    }
+    void StartRunning(){
+        StopMoving=false;
     }
     void OnTriggerEnter(Collider other){
         if (other.CompareTag(Tag.Exit)){
-            animator.SetInteger("State",State_Victory);
-            Speed=initialSpeed;
-            //ScenesManager.Instance.UnLoad(SceneManager.GetSceneByBuildIndex(ReachedRoom).name);
             ReachedRoom++;
-            if (ReachedRoom==1){
-                ScenesManager.Instance.UnLoad("Room 1");
-                ScenesManager.Instance.Load("Room 2");
-            }else if (ReachedRoom==2){
-                ScenesManager.Instance.UnLoad("Room 2");
-                ScenesManager.Instance.Load("Room 3");
-            }
-            else if (ReachedRoom==3){
-                Debug.Log("Win");
-            }
-            //ScenesManager.Instance.Load(SceneManager.GetSceneByBuildIndex(ReachedRoom).name);
+            Destroy(TheShootBullet);
+            NextLode();
+        }
+    }
+    public void Win(){
+        animator.SetInteger("State",State_Victory);
+        ScenesManager.Instance.SetActive_Win_Screen(true);
+        StopMoving=true;
+    }
+    public void Lose(){
+        animator.SetInteger("State",State_Idle);
+        StopMoving=true;
+        ScenesManager.Instance.SetActive_Loss_Screen(true);
+    }
+    public void NextLode(){
+        if (ReachedRoom==1){
+            ScenesManager.Instance.UnLoad("Room 1");
+            ScenesManager.Instance.Load("Room 2");
             PlayerReset();
+        }else if (ReachedRoom==2){
+            ScenesManager.Instance.UnLoad("Room 2");
+            ScenesManager.Instance.Load("Room 3");
+            PlayerReset();
+        }
+        else if (ReachedRoom==3){
+            Win();
         }
     }
     private void OnCollisionEnter(Collision other) {
         if (other.gameObject.tag==(Tag.TargetBullet)||other.gameObject.tag==(Tag.PlayerBullet)){
-            Debug.Log("Lose Game");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Lose();
             Destroy(other.gameObject);
         }
     }
