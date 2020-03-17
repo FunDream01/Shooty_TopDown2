@@ -8,5 +8,6 @@ public class RoomManager : MonoBehaviour{
     void Awake(){
         Targets=GetComponentsInChildren<TargetManager>(); 
         EntrancePostion=transform.Find("Entrance").transform.position;
+        FindObjectOfType<PlayerBulletController2>().NumberOfTargets=Targets.Length;
     }
 }

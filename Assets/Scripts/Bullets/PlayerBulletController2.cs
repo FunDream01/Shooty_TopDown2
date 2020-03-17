@@ -13,13 +13,10 @@ public class PlayerBulletController2 : MonoBehaviour{
     bool MoveForward=true;
     public int NumberOfTargets;
     private PlayerManager Player;
-    private void Awake() {
-        NumberOfTargets=FindObjectOfType<RoomManager>().Targets.Length;
-    }
     void Start()
     {
-        Player = GameObject.FindGameObjectWithTag(Tag.Player).GetComponent<PlayerManager>();
-       
+        // NumberOfTargets=FindObjectsOfType<TargetManager>().Length;
+        Player = FindObjectOfType<PlayerManager>();
     }
     void Update()
     {
