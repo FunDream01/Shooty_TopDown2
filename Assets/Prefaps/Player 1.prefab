@@ -2834,9 +2834,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 304e376517c37384584d6aa800452591, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet: {fileID: 7403682066900525503, guid: 86a4f260c7a757b4e96e09313c22bf6f, type: 3}
+  Bullet: {fileID: 7403682066900525503, guid: 1df6b98e23ad5214b802a2b53c552e89, type: 3}
   Speed: 0.5
   FastSpeed: 4
+  ReachedRoom: 0
 --- !u!54 &5057832311727293151
 Rigidbody:
   m_ObjectHideFlags: 0
