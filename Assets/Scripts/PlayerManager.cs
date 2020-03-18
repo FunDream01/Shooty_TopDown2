@@ -10,7 +10,8 @@ public class PlayerManager : MonoBehaviour{
     private float initialSpeed;
     public float FastSpeed;
     private Rigidbody Body;
-    private int ReachedRoom=0;
+    [HideInInspector]
+    public int ReachedRoom=0;
     private LevelManager manager;
     private Animator animator;
     private bool StopMoving=true;
@@ -32,8 +33,6 @@ public class PlayerManager : MonoBehaviour{
         TheShootBullet =Instantiate(Bullet,transform.position+(Vector3.up*0.5f)+
             (Vector3.forward),Quaternion.identity);
         TheShootBullet.transform.parent=this.transform;
-        TheShootBullet.GetComponent<PlayerBulletController2>().NumberOfTargets=
-            FindObjectOfType<RoomManager>().Targets.Length;
     }
     void FixedUpdate(){
         if (!StopMoving){
@@ -58,7 +57,6 @@ public class PlayerManager : MonoBehaviour{
     void OnTriggerEnter(Collider other){
         if (other.CompareTag(Tag.Exit)){
             ReachedRoom++;
-            Destroy(TheShootBullet);
             NextLode();
         }
     }
@@ -74,12 +72,10 @@ public class PlayerManager : MonoBehaviour{
     }
     public void NextLode(){
         if (ReachedRoom==1){
-            ScenesManager.Instance.UnLoad("Room 1");
-            ScenesManager.Instance.Load("Room 2");
+            ScenesManager.Instance.LoadRoom(ReachedRoom);
             PlayerReset();
         }else if (ReachedRoom==2){
-            ScenesManager.Instance.UnLoad("Room 2");
-            ScenesManager.Instance.Load("Room 3");
+            ScenesManager.Instance.LoadRoom(ReachedRoom);
             PlayerReset();
         }
         else if (ReachedRoom==3){

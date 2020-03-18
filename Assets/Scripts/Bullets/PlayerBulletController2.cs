@@ -15,8 +15,8 @@ public class PlayerBulletController2 : MonoBehaviour{
     private PlayerManager Player;
     void Start()
     {
-        // NumberOfTargets=FindObjectsOfType<TargetManager>().Length;
         Player = FindObjectOfType<PlayerManager>();
+        //NumberOfTargets=FindObjectOfType<RoomManager>().Targets.Length;
     }
     void Update()
     {

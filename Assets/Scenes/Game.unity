@@ -164,6 +164,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Win_Screen: {fileID: 446555982}
   Loss_Screen: {fileID: 1306228813}
+  RoomsIndex: 000000000000000000000000
+  RoomIndex: 0
+  Prefaps:
+  - {fileID: 4359249091715473564, guid: b30dc95d8091224458dcac669cefe086, type: 3}
+  - {fileID: 4359249091715473564, guid: 8e4678117295a5943b1a5c025f83ff22, type: 3}
+  - {fileID: 4359249091715473564, guid: 6a502d9066f586b41a0a777c6fe10a1a, type: 3}
+  ActiveRoom: {fileID: 0}
 --- !u!4 &1672875102
 Transform:
   m_ObjectHideFlags: 0

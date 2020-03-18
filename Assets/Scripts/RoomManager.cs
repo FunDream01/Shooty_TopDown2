@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RoomManager : MonoBehaviour{
-    public TargetManager[] Targets ;
+    public TargetManager[] Tragets;
     public Vector3 EntrancePostion;
     void Awake(){
-        Targets=GetComponentsInChildren<TargetManager>(); 
+        Tragets=GetComponentsInChildren<TargetManager>();
         EntrancePostion=transform.Find("Entrance").transform.position;
-        FindObjectOfType<PlayerBulletController2>().NumberOfTargets=Targets.Length;
     }
 }

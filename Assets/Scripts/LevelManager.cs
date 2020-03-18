@@ -5,15 +5,5 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    public Scene[]rooms;
     
-    void Awake()
-    {
-
-    }
-
-    void Update()
-    {
-        
-    }
 }
