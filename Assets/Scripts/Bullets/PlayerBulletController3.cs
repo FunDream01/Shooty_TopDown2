@@ -35,7 +35,7 @@ public class PlayerBulletController3 : MonoBehaviour{
             LastTapPos = curTapPos;
             //Value to be changed on swipe :
             // Value should be Delta * Speed
-            Debug.Log(delta);
+            //Debug.Log(delta);
             if (delta < 0)
             {               
                 this.transform.RotateAround(RightAnchorPoint.position, Vector3.up, (-delta * RotationSpeed));

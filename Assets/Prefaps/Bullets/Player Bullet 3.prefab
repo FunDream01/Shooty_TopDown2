@@ -124,13 +124,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7698043a816213498181c1ff7b6d3e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotateSpeed: 0
   forwardSpeed: 1.5
   RightAnchorPoint: {fileID: 1553539769758655966}
   LeftAnchorPoint: {fileID: 1553539771127263854}
   NumberOfTargets: 0
   LastTapPos: {x: 0, y: 0}
-  Speed: 0.35
+  RotationSpeed: 0.3
 --- !u!136 &2483426886350831236
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -210,17 +209,17 @@ PrefabInstance:
     - target: {fileID: 4482874424119379703, guid: 7e11f071ae0f5cc48868aa8a673608b1,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4482874424119379703, guid: 7e11f071ae0f5cc48868aa8a673608b1,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4482874424119379703, guid: 7e11f071ae0f5cc48868aa8a673608b1,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4482874424119579935, guid: 7e11f071ae0f5cc48868aa8a673608b1,
         type: 3}

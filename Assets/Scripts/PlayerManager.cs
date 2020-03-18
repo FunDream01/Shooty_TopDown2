@@ -13,12 +13,17 @@ public class PlayerManager : MonoBehaviour{
     [HideInInspector]
     public int ReachedRoom=0;
     private LevelManager manager;
-    private Animator animator;
     private bool StopMoving=true;
+    public int RemainTargets;
+
+    //Animation
+    private Animator animator;
     private int State_Idle=0;
     private int State_shoot=1;
-    private int State_Run=2;
-    private int State_Victory=3;
+    private int State_SlowWalk=2;
+    private int State_Run=3;
+    private int State_Victory=4;
+    private int State_Death=5;
     
     void Start(){
         Body=GetComponent<Rigidbody>();
@@ -27,38 +32,44 @@ public class PlayerManager : MonoBehaviour{
         initialSpeed=Speed;
         PlayerReset();
     }
-    
     void Shoot(){
-        animator.SetInteger("State",State_shoot);
         TheShootBullet =Instantiate(Bullet,transform.position+(Vector3.up*0.5f)+
             (Vector3.forward),Quaternion.identity);
         TheShootBullet.transform.parent=this.transform;
     }
     void FixedUpdate(){
         if (!StopMoving){
-            animator.SetInteger("State",State_Run);
+            animator.SetInteger("State",State_SlowWalk);
             Body.MovePosition(transform.position+ Vector3.forward*Speed*Time.deltaTime);
         }
     }
     public void FinishRoom(){
         Destroy(TheShootBullet);
+        animator.SetInteger("State",State_Run);
         Speed=FastSpeed;
     }
     void PlayerReset(){
+        animator.SetInteger("State",State_shoot);
         Speed=initialSpeed;
         StopMoving=true;
         Vector3 Enter=FindObjectOfType<RoomManager>().EntrancePostion;
         this.transform.position=new Vector3(Enter.x,0,Enter.z);
-        Shoot();
-        Invoke("StartRunning",1f);
+        Invoke("StartRunning",2f);
     }
     void StartRunning(){
+        Shoot();
+        this.transform.rotation=Quaternion.identity;
         StopMoving=false;
     }
     void OnTriggerEnter(Collider other){
         if (other.CompareTag(Tag.Exit)){
-            ReachedRoom++;
-            NextLode();
+            if (TheShootBullet!=null){
+                Lose();
+            }else{
+                ReachedRoom++;
+                NextLode();
+            }
+            
         }
     }
     public void Win(){
@@ -67,7 +78,7 @@ public class PlayerManager : MonoBehaviour{
         StopMoving=true;
     }
     public void Lose(){
-        animator.SetInteger("State",State_Idle);
+        animator.SetInteger("State",State_Death);
         StopMoving=true;
         ScenesManager.Instance.SetActive_Loss_Screen(true);
     }
