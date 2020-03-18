@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class ScenesManager : MonoBehaviour
@@ -8,14 +9,14 @@ public class ScenesManager : MonoBehaviour
     public static ScenesManager Instance;
     public GameObject Win_Screen;
     public GameObject Loss_Screen;
+    public Image[] LevelIndicator;
+    public Color LevelIndicatorColor;
     public int[] RoomsIndex;
     public GameObject[] Prefaps;
     private GameObject ActiveRoom;
     private int PrefapIndex;
     private PlayerManager player;
-
-    void Awake()
-    {
+    void Awake(){
         Instance=this;
         Load(Tag.Player);
         SetActive_Loss_Screen(false);
@@ -25,6 +26,11 @@ public class ScenesManager : MonoBehaviour
     }
     void Start(){
         player=FindObjectOfType<PlayerManager>();
+    }
+    public void UpdateLevelIndicator(int ReachedRoom){
+        for (int i = ReachedRoom - 1; i >= 0 ; i--){
+            LevelIndicator[i].color=LevelIndicatorColor;
+        }
     }
     public void Load (string SceneName){
         if (!SceneManager.GetSceneByName(SceneName).isLoaded)
@@ -39,6 +45,8 @@ public class ScenesManager : MonoBehaviour
             Destroy(ActiveRoom);
         }
         ActiveRoom = Instantiate(Prefaps[RoomsIndex[Index]],transform.position,Quaternion.identity);
+        
+        //UpdateLevelIndicator();
     }
     public void SetActive_Loss_Screen(bool value){
         Loss_Screen.SetActive(value);

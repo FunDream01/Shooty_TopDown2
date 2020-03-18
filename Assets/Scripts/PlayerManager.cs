@@ -58,7 +58,7 @@ public class PlayerManager : MonoBehaviour{
     }
     void StartRunning(){
         Shoot();
-        this.transform.rotation=Quaternion.identity;
+        //this.transform.rotation=Quaternion.identity;
         StopMoving=false;
     }
     void OnTriggerEnter(Collider other){
@@ -86,6 +86,8 @@ public class PlayerManager : MonoBehaviour{
         ReachedRoom=0;
     }
     public void NextLode(){
+        
+        ScenesManager.Instance.UpdateLevelIndicator(ReachedRoom);
         if (ReachedRoom==1){
             ScenesManager.Instance.LoadRoom(ReachedRoom);
             PlayerReset();
