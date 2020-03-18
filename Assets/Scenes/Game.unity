@@ -631,6 +631,36 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6293410496980526775, guid: 9d7e0163d5694f2499e43f20d76ce55d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6293410496980526775, guid: 9d7e0163d5694f2499e43f20d76ce55d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6293410496980526775, guid: 9d7e0163d5694f2499e43f20d76ce55d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6293410496980526775, guid: 9d7e0163d5694f2499e43f20d76ce55d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1672875101}
+    - target: {fileID: 6293410496980526775, guid: 9d7e0163d5694f2499e43f20d76ce55d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoseButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 6293410496980526775, guid: 9d7e0163d5694f2499e43f20d76ce55d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6293410497532455221, guid: 9d7e0163d5694f2499e43f20d76ce55d,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

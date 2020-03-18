@@ -8,17 +8,16 @@ public class ScenesManager : MonoBehaviour
     public static ScenesManager Instance;
     public GameObject Win_Screen;
     public GameObject Loss_Screen;
-    public int[] RoomsIndex ;
-    public int RoomIndex;
+    public int[] RoomsIndex;
     public GameObject[] Prefaps;
-    public GameObject ActiveRoom;
+    private GameObject ActiveRoom;
     private int PrefapIndex;
     private PlayerManager player;
 
     void Awake()
     {
         Instance=this;
-        Load("Player");
+        Load(Tag.Player);
         SetActive_Loss_Screen(false);
         SetActive_Win_Screen(false);
         FillRoomsIndex();
@@ -39,7 +38,7 @@ public class ScenesManager : MonoBehaviour
         if (ActiveRoom!=null){
             Destroy(ActiveRoom);
         }
-        ActiveRoom= Instantiate(Prefaps[RoomsIndex[Index]],transform.position,Quaternion.identity);
+        ActiveRoom = Instantiate(Prefaps[RoomsIndex[Index]],transform.position,Quaternion.identity);
     }
     public void SetActive_Loss_Screen(bool value){
         Loss_Screen.SetActive(value);
@@ -48,7 +47,11 @@ public class ScenesManager : MonoBehaviour
         Win_Screen.SetActive(value);
     }
     public void LoseButton(){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SetActive_Loss_Screen(false);
+        player.RestartLevel();
+        UnLoad(Tag.Player);
+        Load(Tag.Player);
+        LoadRoom(0);
     }
     public void WinButton(){
         Debug.Log("Win");

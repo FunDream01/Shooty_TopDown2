@@ -47,7 +47,8 @@ public class PlayerManager : MonoBehaviour{
     void PlayerReset(){
         Speed=initialSpeed;
         StopMoving=true;
-        this.transform.position=FindObjectOfType<RoomManager>().EntrancePostion;
+        Vector3 Enter=FindObjectOfType<RoomManager>().EntrancePostion;
+        this.transform.position=new Vector3(Enter.x,0,Enter.z);
         Shoot();
         Invoke("StartRunning",1f);
     }
@@ -69,6 +70,9 @@ public class PlayerManager : MonoBehaviour{
         animator.SetInteger("State",State_Idle);
         StopMoving=true;
         ScenesManager.Instance.SetActive_Loss_Screen(true);
+    }
+    public void RestartLevel(){
+        ReachedRoom=0;
     }
     public void NextLode(){
         if (ReachedRoom==1){

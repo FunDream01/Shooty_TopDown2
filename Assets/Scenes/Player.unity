@@ -141,7 +141,7 @@ PrefabInstance:
     - target: {fileID: 7467706379768758097, guid: f3b93b510d3e86049b2d420632ce1c19,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.586
+      value: -4.5
       objectReference: {fileID: 0}
     - target: {fileID: 7467706379768758097, guid: f3b93b510d3e86049b2d420632ce1c19,
         type: 3}
@@ -233,10 +233,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb973c3c430d65c42afde147cb01a2db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rooms:
-  - m_Handle: 1
-  - m_Handle: 2
-  - m_Handle: 3
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
