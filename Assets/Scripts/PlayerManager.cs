@@ -15,7 +15,7 @@ public class PlayerManager : MonoBehaviour{
     private LevelManager manager;
     private bool StopMoving=true;
     public int RemainTargets;
-
+    public ParticleSystem GunShot;
     //Animation
     private Animator animator;
     private int State_Idle=0;
@@ -33,6 +33,7 @@ public class PlayerManager : MonoBehaviour{
         PlayerReset();
     }
     void Shoot(){
+        GunShot.Play();
         TheShootBullet =Instantiate(Bullet,transform.position+(Vector3.up*0.5f)+
             (Vector3.forward),Quaternion.identity);
         TheShootBullet.transform.parent=this.transform;
