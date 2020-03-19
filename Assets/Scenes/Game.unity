@@ -701,7 +701,8 @@ MonoBehaviour:
   - {fileID: 1320901439}
   - {fileID: 2002340588}
   - {fileID: 2019891887}
-  LevelIndicatorColor: {r: 1, g: 1, b: 1, a: 1}
+  OffLevelIndicatorColor: {r: 1, g: 1, b: 1, a: 0.49019608}
+  OnLevelIndicatorColor: {r: 1, g: 1, b: 1, a: 1}
   RoomsIndex: 000000000000000000000000
   Prefaps:
   - {fileID: 3358357648228933584, guid: 8532c79810fc2854abc4c96f5268ed1e, type: 3}

@@ -65,8 +65,12 @@ public class PlayerBulletController3 : MonoBehaviour{
                 Destroy(this.gameObject);
             } 
         }
-        if (other.gameObject.tag==(Tag.TargetBullet)){
+        else if (other.gameObject.tag==(Tag.TargetBullet)){
             Destroy(other.gameObject);
+        }
+        else{
+            Player.Lose();
+            Destroy(this.gameObject);
         }
     }
     private void OnTriggerEnter(Collider other) {

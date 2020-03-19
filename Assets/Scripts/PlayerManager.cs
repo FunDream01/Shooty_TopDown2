@@ -35,7 +35,7 @@ public class PlayerManager : MonoBehaviour{
     void Shoot(){
         GunShot.Play();
         TheShootBullet =Instantiate(Bullet,transform.position+(Vector3.up*0.5f)+
-            (Vector3.forward),Quaternion.identity);
+            (Vector3.forward*1.5f),Quaternion.identity);
         TheShootBullet.transform.parent=this.transform;
     }
     void FixedUpdate(){
@@ -50,6 +50,8 @@ public class PlayerManager : MonoBehaviour{
         Speed=FastSpeed;
     }
     void PlayerReset(){
+        
+        this.transform.rotation=Quaternion.identity;
         animator.SetInteger("State",State_shoot);
         Speed=initialSpeed;
         StopMoving=true;
@@ -59,7 +61,6 @@ public class PlayerManager : MonoBehaviour{
     }
     void StartRunning(){
         Shoot();
-        //this.transform.rotation=Quaternion.identity;
         StopMoving=false;
     }
     void OnTriggerEnter(Collider other){

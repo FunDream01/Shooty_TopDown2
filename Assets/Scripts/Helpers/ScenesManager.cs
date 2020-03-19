@@ -10,7 +10,8 @@ public class ScenesManager : MonoBehaviour
     public GameObject Win_Screen;
     public GameObject Loss_Screen;
     public Image[] LevelIndicator;
-    public Color LevelIndicatorColor;
+    public Color OffLevelIndicatorColor;
+    public Color OnLevelIndicatorColor;
     public int[] RoomsIndex;
     public GameObject[] Prefaps;
     private GameObject ActiveRoom;
@@ -29,7 +30,11 @@ public class ScenesManager : MonoBehaviour
     }
     public void UpdateLevelIndicator(int ReachedRoom){
         for (int i = ReachedRoom - 1; i >= 0 ; i--){
-            LevelIndicator[i].color=LevelIndicatorColor;
+            LevelIndicator[i].color=OnLevelIndicatorColor;
+        }
+        for (int x = ReachedRoom; x<3;x++){
+            
+            LevelIndicator[x].color=OffLevelIndicatorColor;
         }
     }
     public void Load (string SceneName){
@@ -60,6 +65,7 @@ public class ScenesManager : MonoBehaviour
         UnLoad(Tag.Player);
         Load(Tag.Player);
         LoadRoom(0);
+        UpdateLevelIndicator(0);
     }
     public void WinButton(){
         Debug.Log("Win");
