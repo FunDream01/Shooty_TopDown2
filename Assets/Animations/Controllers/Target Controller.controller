@@ -17,7 +17,7 @@ AnimatorStateMachine:
     m_Position: {x: 532.10596, y: 163.33655, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8184409536927539368}
-    m_Position: {x: 276.51685, y: -60.035736, z: 0}
+    m_Position: {x: 310, y: -80, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: 7141161871114083479}
@@ -87,7 +87,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Death
-  m_Speed: 1
+  m_Speed: 0.01
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -99,7 +99,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 927005a3fab99cd45a5afd13cc124e08,
+  m_Motion: {fileID: -203655887218126122, guid: 43bd0d3cb804f9e4b894623a04a88e60,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -146,7 +146,7 @@ AnimatorController:
   - m_Name: State
     m_Type: 3
     m_DefaultFloat: 0
-    m_DefaultInt: 2
+    m_DefaultInt: 1
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
   m_AnimatorLayers:
