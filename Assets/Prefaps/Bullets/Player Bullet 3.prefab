@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7698043a816213498181c1ff7b6d3e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 1.5
+  forwardSpeed: 1
   RightAnchorPoint: {fileID: 1553539769758655966}
   LeftAnchorPoint: {fileID: 1553539771127263854}
   NumberOfTargets: 0
