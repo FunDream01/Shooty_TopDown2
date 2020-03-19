@@ -9,6 +9,8 @@ public class ScenesManager : MonoBehaviour
     public static ScenesManager Instance;
     public GameObject Win_Screen;
     public GameObject Loss_Screen;
+    public GameObject Title_Screen;
+    private bool Title_ScreenIsActive = true;
     public Image[] LevelIndicator;
     public Color OffLevelIndicatorColor;
     public Color OnLevelIndicatorColor;
@@ -24,6 +26,12 @@ public class ScenesManager : MonoBehaviour
         SetActive_Win_Screen(false);
         FillRoomsIndex();
         LoadRoom(0);
+    }
+    private void Update() {
+        if(Input.GetMouseButton(0)&&Title_ScreenIsActive){
+            Title_Screen.SetActive(false);
+            Title_ScreenIsActive=false;
+        }
     }
     void Start(){
         player=FindObjectOfType<PlayerManager>();

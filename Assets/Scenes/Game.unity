@@ -338,6 +338,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 610912459}
   m_CullTransparentMesh: 0
+--- !u!1 &971456007 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 912409527566005775, guid: 6598e7a4187574a4fa04f01561bd4c5c,
+    type: 3}
+  m_PrefabInstance: {fileID: 912409528880232933}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1234113594
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,6 +703,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Win_Screen: {fileID: 446555982}
   Loss_Screen: {fileID: 1306228813}
+  Title_Screen: {fileID: 971456007}
   LevelIndicator:
   - {fileID: 1320901439}
   - {fileID: 2002340588}
@@ -1398,7 +1405,7 @@ PrefabInstance:
     - target: {fileID: 912409527566005775, guid: 6598e7a4187574a4fa04f01561bd4c5c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 912409528121488913, guid: 6598e7a4187574a4fa04f01561bd4c5c,
         type: 3}
@@ -1413,7 +1420,7 @@ PrefabInstance:
     - target: {fileID: 912409528121488913, guid: 6598e7a4187574a4fa04f01561bd4c5c,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6598e7a4187574a4fa04f01561bd4c5c, type: 3}

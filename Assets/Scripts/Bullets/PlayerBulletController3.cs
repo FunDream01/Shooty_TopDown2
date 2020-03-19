@@ -15,6 +15,8 @@ public class PlayerBulletController3 : MonoBehaviour{
     //Vars for Laith's Controller System
     public Vector2 LastTapPos;
     public float RotationSpeed;
+    
+    public ParticleSystem DestroyEffect;
     void Start()
     {
         MoveForward = true;
@@ -62,20 +64,26 @@ public class PlayerBulletController3 : MonoBehaviour{
              NumberOfTargets--;
             if (NumberOfTargets==0){
                 Player.FinishRoom();
+                
+                DestroyEffect.Play();
                 Destroy(this.gameObject);
             } 
         }
         else if (other.gameObject.tag==(Tag.TargetBullet)){
+            DestroyEffect.Play();
             Destroy(other.gameObject);
         }
         else{
             Player.Lose();
+            DestroyEffect.Play();
             Destroy(this.gameObject);
         }
     }
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.CompareTag(Tag.Entrance)||other.gameObject.CompareTag(Tag.Exit)){
             Player.Lose();
+            
+            DestroyEffect.Play();
             Destroy(this.gameObject);
         }
     }

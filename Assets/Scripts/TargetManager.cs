@@ -13,12 +13,15 @@ public class TargetManager : MonoBehaviour{
     private int State_Idle=0;
     private int State_Shoot=1;
     private int State_Death=2;
+    public ParticleSystem GunShot;
     void Start(){
         animator=GetComponent<Animator>();
         colliders=GetComponents<Collider>();
     } 
      void Shoot(){
         if (!DidShoot){
+            
+            GunShot.Play();
             animator.SetInteger("State",State_Shoot);
             TheShootBullet= Instantiate(Bullet,transform.position+(Vector3.up*0.5f)+
                 (transform.forward*BulletSpace),Quaternion.identity);

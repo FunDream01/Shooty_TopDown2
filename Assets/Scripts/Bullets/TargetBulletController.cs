@@ -14,6 +14,8 @@ public class TargetBulletController : MonoBehaviour{
     void Update(){
         Body.MovePosition(Vector3.MoveTowards(
             transform.position,Player.transform.position+(Vector3.up*0.5f),Speed*Time.deltaTime));
+        
+        transform.LookAt(Player.transform,Vector3.zero*Time.deltaTime);
     }
     private void OnCollisionEnter(Collision other) {
         if (other.gameObject.tag==(Tag.Player)){
