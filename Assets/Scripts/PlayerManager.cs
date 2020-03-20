@@ -24,8 +24,12 @@ public class PlayerManager : MonoBehaviour{
     private int State_Run=3;
     private int State_Victory=4;
     private int State_Death=5;
+    private Analytics analytics;
+    private ScenesManager scenesManager;
     
     void Start(){
+        analytics=FindObjectOfType<Analytics>();
+        scenesManager=FindObjectOfType<ScenesManager>();
         Body=GetComponent<Rigidbody>();
         manager=FindObjectOfType<LevelManager>();
         animator=GetComponent<Animator>();
@@ -51,6 +55,7 @@ public class PlayerManager : MonoBehaviour{
     }
     void PlayerReset(){
         
+        analytics.LogLevelStarted(scenesManager.RoomsIndex[ReachedRoom]);
         this.transform.rotation=Quaternion.identity;
         animator.SetInteger("State",State_shoot);
         Speed=initialSpeed;
@@ -68,6 +73,7 @@ public class PlayerManager : MonoBehaviour{
             if (TheShootBullet!=null){
                 Lose();
             }else{
+                analytics.LogLevelSucceeded(scenesManager.RoomsIndex[ReachedRoom]);
                 ReachedRoom++;
                 NextLode();
             }
@@ -80,6 +86,7 @@ public class PlayerManager : MonoBehaviour{
         StopMoving=true;
     }
     public void Lose(){
+        analytics.LogLevelFailed(scenesManager.RoomsIndex[ReachedRoom]);
         animator.SetInteger("State",State_Death);
         StopMoving=true;
         ScenesManager.Instance.SetActive_Loss_Screen(true);
@@ -88,7 +95,6 @@ public class PlayerManager : MonoBehaviour{
         ReachedRoom=0;
     }
     public void NextLode(){
-        
         ScenesManager.Instance.UpdateLevelIndicator(ReachedRoom);
         if (ReachedRoom==1){
             ScenesManager.Instance.LoadRoom(ReachedRoom);

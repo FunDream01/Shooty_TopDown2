@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine;
-
+using TMPro;
 public class ScenesManager : MonoBehaviour
 {
     public static ScenesManager Instance;
     public GameObject Win_Screen;
     public GameObject Loss_Screen;
     public GameObject Title_Screen;
+    public TextMeshProUGUI LevelText;
     private bool Title_ScreenIsActive = true;
     public Image[] LevelIndicator;
     public Color OffLevelIndicatorColor;
@@ -19,6 +20,7 @@ public class ScenesManager : MonoBehaviour
     private GameObject ActiveRoom;
     private int PrefapIndex;
     private PlayerManager player;
+    int PlayerLevel=1;
     void Awake(){
         Instance=this;
         Load(Tag.Player);
@@ -27,14 +29,23 @@ public class ScenesManager : MonoBehaviour
         FillRoomsIndex();
         LoadRoom(0);
     }
+    void Start()
+    {
+        if (PlayerPrefs.HasKey("PlayerLevel")){
+
+            PlayerLevel = PlayerPrefs.GetInt("PlayerLevel");
+        }else{
+            
+            PlayerPrefs.SetInt("PlayerLevel",1);
+        }
+        player=FindObjectOfType<PlayerManager>();
+        LevelText.text="Level "+PlayerLevel;
+    }
     private void Update() {
         if(Input.GetMouseButton(0)&&Title_ScreenIsActive){
             Title_Screen.SetActive(false);
             Title_ScreenIsActive=false;
         }
-    }
-    void Start(){
-        player=FindObjectOfType<PlayerManager>();
     }
     public void UpdateLevelIndicator(int ReachedRoom){
         for (int i = ReachedRoom - 1; i >= 0 ; i--){
@@ -76,6 +87,8 @@ public class ScenesManager : MonoBehaviour
         UpdateLevelIndicator(0);
     }
     public void WinButton(){
+        PlayerLevel++;
+        PlayerPrefs.SetInt("PlayerLevel",PlayerLevel);
         Debug.Log("Win");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
