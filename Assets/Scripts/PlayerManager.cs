@@ -53,16 +53,18 @@ public class PlayerManager : MonoBehaviour{
         animator.SetInteger("State",State_Run);
         Speed=FastSpeed;
     }
+    public void StartGame(){
+        animator.SetInteger("State",State_shoot);
+        Speed=initialSpeed;
+        StopMoving=true;
+        Invoke("StartRunning",2f);
+    }
     void PlayerReset(){
         
         analytics.LogLevelStarted(scenesManager.RoomsIndex[ReachedRoom]);
         this.transform.rotation=Quaternion.identity;
-        animator.SetInteger("State",State_shoot);
-        Speed=initialSpeed;
-        StopMoving=true;
         Vector3 Enter=FindObjectOfType<RoomManager>().EntrancePostion;
         this.transform.position=new Vector3(Enter.x,0,Enter.z);
-        Invoke("StartRunning",2f);
     }
     void StartRunning(){
         Shoot();

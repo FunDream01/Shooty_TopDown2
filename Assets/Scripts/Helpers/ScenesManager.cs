@@ -10,6 +10,7 @@ public class ScenesManager : MonoBehaviour
     public GameObject Win_Screen;
     public GameObject Loss_Screen;
     public GameObject Title_Screen;
+    public GameObject LevelIndicator_Screen;
     public TextMeshProUGUI LevelText;
     private bool Title_ScreenIsActive = true;
     public Image[] LevelIndicator;
@@ -31,6 +32,7 @@ public class ScenesManager : MonoBehaviour
     }
     void Start()
     {
+        LevelIndicator_Screen.SetActive(false);
         if (PlayerPrefs.HasKey("PlayerLevel")){
 
             PlayerLevel = PlayerPrefs.GetInt("PlayerLevel");
@@ -43,8 +45,11 @@ public class ScenesManager : MonoBehaviour
     }
     private void Update() {
         if(Input.GetMouseButton(0)&&Title_ScreenIsActive){
+            
             Title_Screen.SetActive(false);
             Title_ScreenIsActive=false;
+            LevelIndicator_Screen.SetActive(true);
+            player.StartGame();
         }
     }
     public void UpdateLevelIndicator(int ReachedRoom){
