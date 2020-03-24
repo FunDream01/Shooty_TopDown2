@@ -57,7 +57,7 @@ public class PlayerManager : MonoBehaviour{
         animator.SetInteger("State",State_shoot);
         Speed=initialSpeed;
         StopMoving=true;
-        Invoke("StartRunning",2f);
+        Invoke("StartRunning",1f);
     }
     void PlayerReset(){
         
@@ -65,6 +65,7 @@ public class PlayerManager : MonoBehaviour{
         this.transform.rotation=Quaternion.identity;
         Vector3 Enter=FindObjectOfType<RoomManager>().EntrancePostion;
         this.transform.position=new Vector3(Enter.x,0,Enter.z);
+        //StartGame();
     }
     void StartRunning(){
         Shoot();

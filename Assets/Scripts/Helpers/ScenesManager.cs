@@ -20,7 +20,7 @@ public class ScenesManager : MonoBehaviour
     public GameObject[] Prefaps;
     private GameObject ActiveRoom;
     private int PrefapIndex;
-    private PlayerManager player;
+    public PlayerManager player;
     int PlayerLevel=1;
     void Awake(){
         Instance=this;
@@ -49,6 +49,8 @@ public class ScenesManager : MonoBehaviour
             Title_Screen.SetActive(false);
             Title_ScreenIsActive=false;
             LevelIndicator_Screen.SetActive(true);
+            
+            player=FindObjectOfType<PlayerManager>();
             player.StartGame();
         }
     }
@@ -89,7 +91,10 @@ public class ScenesManager : MonoBehaviour
         UnLoad(Tag.Player);
         Load(Tag.Player);
         LoadRoom(0);
+        SetActive_Loss_Screen(false);
         UpdateLevelIndicator(0);
+        Title_Screen.SetActive(true);
+        Title_ScreenIsActive=true;
     }
     public void WinButton(){
         PlayerLevel++;

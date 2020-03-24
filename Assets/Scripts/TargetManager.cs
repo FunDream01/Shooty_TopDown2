@@ -25,7 +25,7 @@ public class TargetManager : MonoBehaviour{
             animator.SetInteger("State",State_Shoot);
             TheShootBullet= Instantiate(Bullet,transform.position+(Vector3.up*0.5f)+
                 (transform.forward*BulletSpace),Quaternion.identity);
-            //TheShootBullet.transform.parent=this.transform;
+            TheShootBullet.transform.parent=this.transform.parent;
             DidShoot=true;
         }
     }

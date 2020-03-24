@@ -17,6 +17,7 @@ public class PlayerBulletController3 : MonoBehaviour{
     public float RotationSpeed;
     
     public ParticleSystem DestroyEffect;
+
     void Start()
     {
         MoveForward = true;
@@ -75,7 +76,9 @@ public class PlayerBulletController3 : MonoBehaviour{
         }
         else{
             Player.Lose();
-            DestroyEffect.Play();
+            //DestroyEffect.Play();
+            GameObject _Destroy= Instantiate(DestroyEffect.gameObject,transform.position,Quaternion.identity);
+            _Destroy.GetComponent<ParticleSystem>().Play();
             Destroy(this.gameObject);
         }
     }
