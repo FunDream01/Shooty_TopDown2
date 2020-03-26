@@ -6,6 +6,8 @@ using UnityEngine;
 using TMPro;
 public class ScenesManager : MonoBehaviour
 {
+    public bool Tutorial;
+    public Tutorial[] tutorial;
     public static ScenesManager Instance;
     public GameObject Win_Screen;
     public GameObject Loss_Screen;
@@ -17,34 +19,51 @@ public class ScenesManager : MonoBehaviour
     public Color OffLevelIndicatorColor;
     public Color OnLevelIndicatorColor;
     public int[] RoomsIndex;
+    public GameObject[] LevelRooms;
     public GameObject[] Prefaps;
     private GameObject ActiveRoom;
     private int PrefapIndex;
     public PlayerManager player;
-    int PlayerLevel=1;
+    public int PlayerLevel=1;
     void Awake(){
         Instance=this;
         Load(Tag.Player);
         SetActive_Loss_Screen(false);
         SetActive_Win_Screen(false);
-        FillRoomsIndex();
-        LoadRoom(0);
+        LevelIndicator_Screen.SetActive(false);
+        //PlayerPrefs.DeleteAll();
+        LoadPlayerPrefpas();
+        LoadRoom(LevelRooms[0]);
+        
+    }
+    void LoadPlayerPrefpas(){
+        if (PlayerPrefs.HasKey("PlayerLevel"))
+        {
+
+            PlayerLevel = PlayerPrefs.GetInt("PlayerLevel");
+        }
+        else
+        { 
+            PlayerPrefs.SetInt("PlayerLevel",1);
+        }
+        if (PlayerLevel<tutorial.Length)
+        {
+            TutorialRoomsIndex();
+        }
+        else
+        {
+            FillRoomsIndex();
+        }
     }
     void Start()
     {
-        LevelIndicator_Screen.SetActive(false);
-        if (PlayerPrefs.HasKey("PlayerLevel")){
-
-            PlayerLevel = PlayerPrefs.GetInt("PlayerLevel");
-        }else{
-            
-            PlayerPrefs.SetInt("PlayerLevel",1);
-        }
         player=FindObjectOfType<PlayerManager>();
-        LevelText.text="Level "+PlayerLevel;
+        LevelText.text="Level "+(PlayerLevel+1);
     }
-    private void Update() {
-        if(Input.GetMouseButton(0)&&Title_ScreenIsActive){
+    void Update() 
+    {
+        if(Input.GetMouseButton(0)&&Title_ScreenIsActive)
+        {
             
             Title_Screen.SetActive(false);
             Title_ScreenIsActive=false;
@@ -71,11 +90,11 @@ public class ScenesManager : MonoBehaviour
         if (SceneManager.GetSceneByName(SceneName).isLoaded)
             SceneManager.UnloadSceneAsync(SceneName);
     }
-    public void LoadRoom (int Index){
+    public void LoadRoom (GameObject Room){
         if (ActiveRoom!=null){
             Destroy(ActiveRoom);
         }
-        ActiveRoom = Instantiate(Prefaps[RoomsIndex[Index]],transform.position,Quaternion.identity);
+        ActiveRoom = Instantiate(Room,transform.position,Quaternion.identity);
         
         //UpdateLevelIndicator();
     }
@@ -90,7 +109,7 @@ public class ScenesManager : MonoBehaviour
         player.RestartLevel();
         UnLoad(Tag.Player);
         Load(Tag.Player);
-        LoadRoom(0);
+        LoadRoom(LevelRooms[0]);
         SetActive_Loss_Screen(false);
         UpdateLevelIndicator(0);
         Title_Screen.SetActive(true);
@@ -102,6 +121,9 @@ public class ScenesManager : MonoBehaviour
         Debug.Log("Win");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+    void TutorialRoomsIndex(){
+        LevelRooms=tutorial[PlayerLevel].Rooms;
+    }
     void FillRoomsIndex(){
         for (int i = 0; i < RoomsIndex.Length; i++){
             if(i==0){
@@ -109,6 +131,10 @@ public class ScenesManager : MonoBehaviour
             }else{
                 RoomsIndex[i] =RandomRangeExcept(i);
             }
+        }
+        for (int i = 0; i < LevelRooms.Length; i++)
+        {
+            LevelRooms[i]=Prefaps[RoomsIndex[i]];
         }
     }
     int RandomRangeExcept(int index){

@@ -100,11 +100,12 @@ public class PlayerManager : MonoBehaviour{
     public void NextLode(){
         ScenesManager.Instance.UpdateLevelIndicator(ReachedRoom);
         if (ReachedRoom==1){
-            ScenesManager.Instance.LoadRoom(ReachedRoom);
+            //GameObject Room=ScenesManager.Instance.LevelRooms[ReachedRoom];
+            ScenesManager.Instance.LoadRoom(ScenesManager.Instance.LevelRooms[ReachedRoom]);
             StartGame();
             PlayerReset();
         }else if (ReachedRoom==2){
-            ScenesManager.Instance.LoadRoom(ReachedRoom);
+            ScenesManager.Instance.LoadRoom(ScenesManager.Instance.LevelRooms[ReachedRoom]);
             StartGame();
             PlayerReset();
         }

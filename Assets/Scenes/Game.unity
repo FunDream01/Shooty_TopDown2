@@ -915,6 +915,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a99ac7ae7c209c84599841b2646214c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Tutorial: 1
+  tutorial:
+  - Rooms:
+    - {fileID: 3358357648228933584, guid: 8532c79810fc2854abc4c96f5268ed1e, type: 3}
+    - {fileID: 3358357648228933584, guid: 8532c79810fc2854abc4c96f5268ed1e, type: 3}
+    - {fileID: 3358357648228933584, guid: 8532c79810fc2854abc4c96f5268ed1e, type: 3}
+  - Rooms:
+    - {fileID: 3358357648228933584, guid: 8532c79810fc2854abc4c96f5268ed1e, type: 3}
+    - {fileID: 3358357648228933584, guid: c5008e8a3eb1a0344af689dd2616c7e3, type: 3}
+    - {fileID: 3358357648228933584, guid: 5066c2601cfd6e34e96b4b1126901bc3, type: 3}
+  - Rooms:
+    - {fileID: 3358357648228933584, guid: c5008e8a3eb1a0344af689dd2616c7e3, type: 3}
+    - {fileID: 3358357648228933584, guid: 5066c2601cfd6e34e96b4b1126901bc3, type: 3}
+    - {fileID: 3358357648228933584, guid: d735b6c024ab2894a80dc3a4861447fe, type: 3}
   Win_Screen: {fileID: 446555982}
   Loss_Screen: {fileID: 1306228813}
   Title_Screen: {fileID: 971456007}
@@ -927,6 +941,10 @@ MonoBehaviour:
   OffLevelIndicatorColor: {r: 1, g: 1, b: 1, a: 0.49019608}
   OnLevelIndicatorColor: {r: 1, g: 1, b: 1, a: 1}
   RoomsIndex: 000000000000000000000000
+  LevelRooms:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   Prefaps:
   - {fileID: 3358357648228933584, guid: 8532c79810fc2854abc4c96f5268ed1e, type: 3}
   - {fileID: 3358357648228933584, guid: c5008e8a3eb1a0344af689dd2616c7e3, type: 3}

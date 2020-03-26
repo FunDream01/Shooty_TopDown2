@@ -5115,12 +5115,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7698043a816213498181c1ff7b6d3e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 1
+  forwardSpeed: 1.5
   RightAnchorPoint: {fileID: 1553539769758655966}
   LeftAnchorPoint: {fileID: 1553539771127263854}
   NumberOfTargets: 0
-  LastTapPos: {x: 0, y: 0}
-  RotationSpeed: 0.3
+  RotationSpeed: 0.6
   DestroyEffect: {fileID: 4762366363166847096}
 --- !u!136 &2483426886350831236
 CapsuleCollider:

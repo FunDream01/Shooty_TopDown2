@@ -8,8 +8,8 @@ public class TargetManager : MonoBehaviour{
     public GameObject TheShootBullet; // the clone bullet
     public bool DidShoot; 
     private Animator animator;
-    public ParticleSystem Dlood;
-    public Collider[]colliders;
+    //public ParticleSystem Dlood;
+    private Collider[]colliders;
     private int State_Idle=0;
     private int State_Shoot=1;
     private int State_Death=2;
@@ -49,7 +49,7 @@ public class TargetManager : MonoBehaviour{
         }
         Destroy(TheShootBullet);
         animator.SetInteger("State",State_Death);
-        Dlood.Play();
+        //Dlood.Play();
         DidShoot=true;
         this.enabled = false;
     }

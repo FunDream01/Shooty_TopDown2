@@ -4,18 +4,14 @@ using UnityEngine;
 
 public class PlayerBulletController3 : MonoBehaviour{
     public float forwardSpeed;
-    Vector2 firstPressPos;
-    Vector2 secondPressPos;
-    Vector2 currentSwipe;
     public Transform RightAnchorPoint;
     public Transform LeftAnchorPoint;
     bool MoveForward=true;
     public int NumberOfTargets;
     private PlayerManager Player;
     //Vars for Laith's Controller System
-    public Vector2 LastTapPos;
+    private Vector2 LastTapPos;
     public float RotationSpeed;
-    
     public ParticleSystem DestroyEffect;
 
     void Start()
