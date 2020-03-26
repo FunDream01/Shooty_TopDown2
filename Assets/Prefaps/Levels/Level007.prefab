@@ -712,7 +712,7 @@ PrefabInstance:
     - target: {fileID: 8081681235621669549, guid: d65afbca9c48091439c1234cc7e965a8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.24
+      value: 3.16
       objectReference: {fileID: 0}
     - target: {fileID: 8081681235621669549, guid: d65afbca9c48091439c1234cc7e965a8,
         type: 3}
@@ -722,7 +722,7 @@ PrefabInstance:
     - target: {fileID: 8081681235621669549, guid: d65afbca9c48091439c1234cc7e965a8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.21
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 8081681235621669549, guid: d65afbca9c48091439c1234cc7e965a8,
         type: 3}
@@ -787,12 +787,7 @@ PrefabInstance:
     - target: {fileID: 8177343276320454037, guid: d65afbca9c48091439c1234cc7e965a8,
         type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'Root'\n\tTransform 'IndexFinger_02'\n\tTransform
-        'Elbow_R'\n\tTransform 'Finger_02'\n\tTransform 'Finger_03'\n\tTransform
-        'Ball_L'\n\tTransform 'Thumb_02'\n\tTransform 'Ball_R'\n\tTransform 'Clavicle_L'\n\tTransform
-        'Finger_01'\n\tand more ...\n\tFrom animation clip 'Death'"
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d65afbca9c48091439c1234cc7e965a8, type: 3}
@@ -1099,7 +1094,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4072620583648026, guid: fd78abefc2a7dac4cadd2725034d55cf, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.134
+      value: -5.624
       objectReference: {fileID: 0}
     - target: {fileID: 4072620583648026, guid: fd78abefc2a7dac4cadd2725034d55cf, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1481,7 +1476,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4116339855483510, guid: 5a99bd6c3e5399d41b217b8cd3a6afbb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.2993479
+      value: 3.609348
       objectReference: {fileID: 0}
     - target: {fileID: 4116339855483510, guid: 5a99bd6c3e5399d41b217b8cd3a6afbb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1489,7 +1484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4116339855483510, guid: 5a99bd6c3e5399d41b217b8cd3a6afbb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.8224466
+      value: -3.1724467
       objectReference: {fileID: 0}
     - target: {fileID: 4116339855483510, guid: 5a99bd6c3e5399d41b217b8cd3a6afbb, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1700,7 +1695,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4797593861707532, guid: 1610cb72fa689a8419fbdd98c4ada93c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.57
+      value: 3.49
       objectReference: {fileID: 0}
     - target: {fileID: 4797593861707532, guid: 1610cb72fa689a8419fbdd98c4ada93c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1708,7 +1703,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4797593861707532, guid: 1610cb72fa689a8419fbdd98c4ada93c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.47
+      value: -4.47
       objectReference: {fileID: 0}
     - target: {fileID: 4797593861707532, guid: 1610cb72fa689a8419fbdd98c4ada93c, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1771,7 +1766,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4466564619420932, guid: af6d078220e607a44919ca877982f33d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.06
+      value: -4.55
       objectReference: {fileID: 0}
     - target: {fileID: 4466564619420932, guid: af6d078220e607a44919ca877982f33d, type: 3}
       propertyPath: m_LocalRotation.x
@@ -2267,7 +2262,7 @@ PrefabInstance:
     - target: {fileID: 8081681235621669549, guid: d65afbca9c48091439c1234cc7e965a8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.96460235
+      value: -0.24
       objectReference: {fileID: 0}
     - target: {fileID: 8081681235621669549, guid: d65afbca9c48091439c1234cc7e965a8,
         type: 3}
@@ -2277,7 +2272,7 @@ PrefabInstance:
     - target: {fileID: 8081681235621669549, guid: d65afbca9c48091439c1234cc7e965a8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.7629515
+      value: 1.46
       objectReference: {fileID: 0}
     - target: {fileID: 8081681235621669549, guid: d65afbca9c48091439c1234cc7e965a8,
         type: 3}
@@ -2342,12 +2337,7 @@ PrefabInstance:
     - target: {fileID: 8177343276320454037, guid: d65afbca9c48091439c1234cc7e965a8,
         type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'Root'\n\tTransform 'IndexFinger_02'\n\tTransform
-        'Elbow_R'\n\tTransform 'Finger_02'\n\tTransform 'Finger_03'\n\tTransform
-        'Ball_L'\n\tTransform 'Thumb_02'\n\tTransform 'Ball_R'\n\tTransform 'Clavicle_L'\n\tTransform
-        'Finger_01'\n\tand more ...\n\tFrom animation clip 'Death'"
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d65afbca9c48091439c1234cc7e965a8, type: 3}
@@ -2433,7 +2423,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4072620583648026, guid: fd78abefc2a7dac4cadd2725034d55cf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3
+      value: 3.56
       objectReference: {fileID: 0}
     - target: {fileID: 4072620583648026, guid: fd78abefc2a7dac4cadd2725034d55cf, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2441,7 +2431,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4072620583648026, guid: fd78abefc2a7dac4cadd2725034d55cf, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.6522001
+      value: -2.19
       objectReference: {fileID: 0}
     - target: {fileID: 4072620583648026, guid: fd78abefc2a7dac4cadd2725034d55cf, type: 3}
       propertyPath: m_LocalRotation.x
@@ -2907,7 +2897,7 @@ PrefabInstance:
     - target: {fileID: 8081681235621669549, guid: d65afbca9c48091439c1234cc7e965a8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.97
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 8081681235621669549, guid: d65afbca9c48091439c1234cc7e965a8,
         type: 3}
@@ -2917,7 +2907,7 @@ PrefabInstance:
     - target: {fileID: 8081681235621669549, guid: d65afbca9c48091439c1234cc7e965a8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.19
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 8081681235621669549, guid: d65afbca9c48091439c1234cc7e965a8,
         type: 3}
@@ -2982,12 +2972,7 @@ PrefabInstance:
     - target: {fileID: 8177343276320454037, guid: d65afbca9c48091439c1234cc7e965a8,
         type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'Root'\n\tTransform 'IndexFinger_02'\n\tTransform
-        'Elbow_R'\n\tTransform 'Finger_02'\n\tTransform 'Finger_03'\n\tTransform
-        'Ball_L'\n\tTransform 'Thumb_02'\n\tTransform 'Ball_R'\n\tTransform 'Clavicle_L'\n\tTransform
-        'Finger_01'\n\tand more ...\n\tFrom animation clip 'Death'"
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d65afbca9c48091439c1234cc7e965a8, type: 3}

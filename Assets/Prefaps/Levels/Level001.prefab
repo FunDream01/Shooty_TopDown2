@@ -1476,7 +1476,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4072620583648026, guid: fd78abefc2a7dac4cadd2725034d55cf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.21
+      value: 3.34
       objectReference: {fileID: 0}
     - target: {fileID: 4072620583648026, guid: fd78abefc2a7dac4cadd2725034d55cf, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1484,7 +1484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4072620583648026, guid: fd78abefc2a7dac4cadd2725034d55cf, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.6
+      value: -1.93
       objectReference: {fileID: 0}
     - target: {fileID: 4072620583648026, guid: fd78abefc2a7dac4cadd2725034d55cf, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1746,7 +1746,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4002415445276494, guid: 3323d26f477e9684e9c32005b3043078, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.5331364
+      value: 3.71
       objectReference: {fileID: 0}
     - target: {fileID: 4002415445276494, guid: 3323d26f477e9684e9c32005b3043078, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1754,7 +1754,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4002415445276494, guid: 3323d26f477e9684e9c32005b3043078, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.81
+      value: -3.4
       objectReference: {fileID: 0}
     - target: {fileID: 4002415445276494, guid: 3323d26f477e9684e9c32005b3043078, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1881,7 +1881,7 @@ PrefabInstance:
     - target: {fileID: 8081681235621669549, guid: d65afbca9c48091439c1234cc7e965a8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.321
+      value: 3.16
       objectReference: {fileID: 0}
     - target: {fileID: 8081681235621669549, guid: d65afbca9c48091439c1234cc7e965a8,
         type: 3}
@@ -1891,7 +1891,7 @@ PrefabInstance:
     - target: {fileID: 8081681235621669549, guid: d65afbca9c48091439c1234cc7e965a8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.323
+      value: 0.31
       objectReference: {fileID: 0}
     - target: {fileID: 8081681235621669549, guid: d65afbca9c48091439c1234cc7e965a8,
         type: 3}
@@ -1956,12 +1956,7 @@ PrefabInstance:
     - target: {fileID: 8177343276320454037, guid: d65afbca9c48091439c1234cc7e965a8,
         type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'Root'\n\tTransform 'IndexFinger_02'\n\tTransform
-        'Elbow_R'\n\tTransform 'Finger_02'\n\tTransform 'Finger_03'\n\tTransform
-        'Ball_L'\n\tTransform 'Thumb_02'\n\tTransform 'Ball_R'\n\tTransform 'Clavicle_L'\n\tTransform
-        'Finger_01'\n\tand more ...\n\tFrom animation clip 'Death'"
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d65afbca9c48091439c1234cc7e965a8, type: 3}
@@ -2401,7 +2396,7 @@ PrefabInstance:
     - target: {fileID: 8081681235621669549, guid: d65afbca9c48091439c1234cc7e965a8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.6889693
+      value: -0.34
       objectReference: {fileID: 0}
     - target: {fileID: 8081681235621669549, guid: d65afbca9c48091439c1234cc7e965a8,
         type: 3}
@@ -2411,7 +2406,7 @@ PrefabInstance:
     - target: {fileID: 8081681235621669549, guid: d65afbca9c48091439c1234cc7e965a8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.1432362
+      value: -2.42
       objectReference: {fileID: 0}
     - target: {fileID: 8081681235621669549, guid: d65afbca9c48091439c1234cc7e965a8,
         type: 3}
@@ -2476,12 +2471,7 @@ PrefabInstance:
     - target: {fileID: 8177343276320454037, guid: d65afbca9c48091439c1234cc7e965a8,
         type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'Root'\n\tTransform 'IndexFinger_02'\n\tTransform
-        'Elbow_R'\n\tTransform 'Finger_02'\n\tTransform 'Finger_03'\n\tTransform
-        'Ball_L'\n\tTransform 'Thumb_02'\n\tTransform 'Ball_R'\n\tTransform 'Clavicle_L'\n\tTransform
-        'Finger_01'\n\tand more ...\n\tFrom animation clip 'Death'"
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d65afbca9c48091439c1234cc7e965a8, type: 3}
@@ -3422,7 +3412,7 @@ PrefabInstance:
     - target: {fileID: 8081681235621669549, guid: d65afbca9c48091439c1234cc7e965a8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.131
+      value: -0.49
       objectReference: {fileID: 0}
     - target: {fileID: 8081681235621669549, guid: d65afbca9c48091439c1234cc7e965a8,
         type: 3}
@@ -3432,7 +3422,7 @@ PrefabInstance:
     - target: {fileID: 8081681235621669549, guid: d65afbca9c48091439c1234cc7e965a8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.503
+      value: 1.88
       objectReference: {fileID: 0}
     - target: {fileID: 8081681235621669549, guid: d65afbca9c48091439c1234cc7e965a8,
         type: 3}
@@ -3497,12 +3487,7 @@ PrefabInstance:
     - target: {fileID: 8177343276320454037, guid: d65afbca9c48091439c1234cc7e965a8,
         type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'Root'\n\tTransform 'IndexFinger_02'\n\tTransform
-        'Elbow_R'\n\tTransform 'Finger_02'\n\tTransform 'Finger_03'\n\tTransform
-        'Ball_L'\n\tTransform 'Thumb_02'\n\tTransform 'Ball_R'\n\tTransform 'Clavicle_L'\n\tTransform
-        'Finger_01'\n\tand more ...\n\tFrom animation clip 'Death'"
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d65afbca9c48091439c1234cc7e965a8, type: 3}
