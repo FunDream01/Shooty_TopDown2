@@ -34,8 +34,15 @@ public class TargetManager : MonoBehaviour{
             //DidShoot=true;
         //}
     }
-    void Hit(){
-        //play
+    private IEnumerator Hit(PlayerManager player)
+    {
+        
+        animator.SetInteger("State",State_Hit);
+        player.StopMoving=true;
+        yield return new WaitForSeconds(0.5f);
+        player.Death();
+        animator.SetInteger("State",State_Idle);
+        
     }
     void OnTriggerStay(Collider other){
         // When player is near --> look at player
@@ -55,13 +62,12 @@ public class TargetManager : MonoBehaviour{
             transform.LookAt(player.transform,Vector3.zero*Time.deltaTime);
             transform.Translate(Vector3.forward*Time.deltaTime*RunningSpeed);
             if(Vector3.Distance(player.transform.position,transform.position)<1f){
-                animator.SetInteger("State",State_Idle);
-                playerManager.Death();
+                //animator.SetInteger("State",State_Hit);
+                StartCoroutine("Hit",playerManager);
+                //playerManager.Death();
             }
             //Hit();
         }
-        
-        
     }
     void LookToPlayer(GameObject player){
         transform.LookAt(player.transform,Vector3.zero*Time.deltaTime);

@@ -13,7 +13,8 @@ public class PlayerManager : MonoBehaviour{
     [HideInInspector]
     public int ReachedRoom=0;
     private LevelManager manager;
-    private bool StopMoving=true;
+    [HideInInspector]
+    public bool StopMoving=true;
     public int RemainTargets;
     public ParticleSystem GunShot;
     //Animation
