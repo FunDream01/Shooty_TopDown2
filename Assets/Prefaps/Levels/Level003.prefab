@@ -1143,6 +1143,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Target 1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8083109553314801789, guid: d65afbca9c48091439c1234cc7e965a8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083174350364743465, guid: d65afbca9c48091439c1234cc7e965a8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8177343276320454037, guid: d65afbca9c48091439c1234cc7e965a8,
         type: 3}
       propertyPath: m_WarningMessage
@@ -2140,6 +2150,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Target 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083174350364743465, guid: d65afbca9c48091439c1234cc7e965a8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083216716309212301, guid: d65afbca9c48091439c1234cc7e965a8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8177343276320454037, guid: d65afbca9c48091439c1234cc7e965a8,
         type: 3}

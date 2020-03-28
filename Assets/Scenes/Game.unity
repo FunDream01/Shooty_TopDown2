@@ -886,6 +886,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d496014ced9da94fbb541f9f88c59f1, type: 3}
+--- !u!1 &1629339326
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1629339327}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1629339327
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629339326}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 312.99478, y: 1279.4137, z: 412.51343}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1672875100
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,7 +956,7 @@ MonoBehaviour:
     - {fileID: 3358357648228933584, guid: c5008e8a3eb1a0344af689dd2616c7e3, type: 3}
     - {fileID: 3358357648228933584, guid: 5066c2601cfd6e34e96b4b1126901bc3, type: 3}
   - Rooms:
-    - {fileID: 3358357648228933584, guid: c5008e8a3eb1a0344af689dd2616c7e3, type: 3}
+    - {fileID: 3358357648228933584, guid: 8532c79810fc2854abc4c96f5268ed1e, type: 3}
     - {fileID: 3358357648228933584, guid: 5066c2601cfd6e34e96b4b1126901bc3, type: 3}
     - {fileID: 3358357648228933584, guid: d735b6c024ab2894a80dc3a4861447fe, type: 3}
   Win_Screen: {fileID: 446555982}
@@ -957,6 +987,7 @@ MonoBehaviour:
   - {fileID: 3358357648228933584, guid: 8dc3a8099a5b47f489f2679965d22a62, type: 3}
   - {fileID: 3358357648228933584, guid: 234923a0ef2ff7d40a5cd81986afe2e4, type: 3}
   player: {fileID: 0}
+  PlayerLevel: 1
 --- !u!4 &1672875102
 Transform:
   m_ObjectHideFlags: 0
