@@ -26,6 +26,8 @@ public class PlayerManager : MonoBehaviour{
     private int State_Death=5;
     private Analytics analytics;
     private ScenesManager scenesManager;
+    [HideInInspector]
+    public  bool isDead=false;
     
     void Start(){
         analytics=FindObjectOfType<Analytics>();
@@ -53,11 +55,14 @@ public class PlayerManager : MonoBehaviour{
         animator.SetInteger("State",State_Run);
         Speed=FastSpeed;
     }
-    public void StartGame(){
-        animator.SetInteger("State",State_shoot);
-        Speed=initialSpeed;
-        StopMoving=true;
-        Invoke("StartRunning",1f);
+    public void StartGame(float time){
+        if(isDead==false){
+
+            animator.SetInteger("State",State_shoot);
+            Speed=initialSpeed;
+            StopMoving=true;
+            Invoke("StartRunning",time);
+        }
     }
     void PlayerReset(){
         
@@ -89,15 +94,19 @@ public class PlayerManager : MonoBehaviour{
         StopMoving=true;
     }
     public void Lose(){
-        analytics.LogLevelFailed(scenesManager.RoomsIndex[ReachedRoom]);
-        animator.SetInteger("State",State_Idle);
-        StopMoving=true;
-        ScenesManager.Instance.SetActive_Loss_Screen(true);
+       // if (isDeath==false){
+            analytics.LogLevelFailed(scenesManager.RoomsIndex[ReachedRoom]);
+            animator.SetInteger("State",State_Idle);
+            StopMoving=true;
+            ScenesManager.Instance.SetActive_Loss_Screen(true);
+       // }
     }public void Death(){
         analytics.LogLevelFailed(scenesManager.RoomsIndex[ReachedRoom]);
         animator.SetInteger("State",State_Death);
         StopMoving=true;
+        isDead=true;
         ScenesManager.Instance.SetActive_Loss_Screen(true);
+        Destroy(TheShootBullet);
     }
     public void RestartLevel(){
         ReachedRoom=0;
@@ -107,11 +116,11 @@ public class PlayerManager : MonoBehaviour{
         if (ReachedRoom==1){
             //GameObject Room=ScenesManager.Instance.LevelRooms[ReachedRoom];
             ScenesManager.Instance.LoadRoom(ScenesManager.Instance.LevelRooms[ReachedRoom]);
-            StartGame();
+            StartGame(1);
             PlayerReset();
         }else if (ReachedRoom==2){
             ScenesManager.Instance.LoadRoom(ScenesManager.Instance.LevelRooms[ReachedRoom]);
-            StartGame();
+            StartGame(1);
             PlayerReset();
         }
         else if (ReachedRoom==3){

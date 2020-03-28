@@ -3,54 +3,91 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TargetManager : MonoBehaviour{
+    public bool RunningTarget; 
+    public float RunningSpeed=0.5f;
+    public float TimeBetweenShooting=5f;
+    private float TimeRemain;
     public float BulletSpace=1f;
     public GameObject Bullet;
-    public GameObject TheShootBullet; // the clone bullet
-    public bool DidShoot; 
+    public List<GameObject> ShootBullets = new List<GameObject>();// the clone bullet
     private Animator animator;
     //public ParticleSystem Dlood;
     private Collider[]colliders;
     private int State_Idle=0;
     private int State_Shoot=1;
-    private int State_Death=2;
+    private int State_Running=2;
+    private int State_Hit=3;
+    private int State_Death=4;
     public ParticleSystem GunShot;
     void Start(){
         animator=GetComponent<Animator>();
         colliders=GetComponents<Collider>();
     } 
-     void Shoot(){
-        if (!DidShoot){
-            
+    void Shoot(){
+        //if (!DidShoot){
             GunShot.Play();
             animator.SetInteger("State",State_Shoot);
-            TheShootBullet= Instantiate(Bullet,transform.position+(Vector3.up*0.5f)+
+            GameObject TheShootBullet= Instantiate(Bullet,transform.position+(Vector3.up*0.5f)+
                 (transform.forward*BulletSpace),Quaternion.identity);
             TheShootBullet.transform.parent=this.transform.parent;
-            DidShoot=true;
-        }
+            ShootBullets.Add(TheShootBullet);
+            //DidShoot=true;
+        //}
+    }
+    void Hit(){
+        //play
     }
     void OnTriggerStay(Collider other){
         // When player is near --> look at player
         if (other.CompareTag(Tag.Player)){
-            transform.LookAt(other.transform,Vector3.zero*Time.deltaTime);
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position+(Vector3.up*0.5f), transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
-            {
-                Debug.DrawRay(transform.position+(Vector3.up*0.5f), transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-
-                if (hit.transform.CompareTag(Tag.Player))
-                    Shoot();
+            if(RunningTarget){
+                RunToPlayer(other.gameObject);
+            }else{
+                LookToPlayer(other.gameObject);
             }
+        }
+    }
+    void RunToPlayer(GameObject player){
+        PlayerManager playerManager=player.GetComponent<PlayerManager>();
+        if (playerManager.isDead==false){
+            
+            animator.SetInteger("State",State_Running);
+            transform.LookAt(player.transform,Vector3.zero*Time.deltaTime);
+            transform.Translate(Vector3.forward*Time.deltaTime*RunningSpeed);
+            if(Vector3.Distance(player.transform.position,transform.position)<1f){
+                animator.SetInteger("State",State_Idle);
+                playerManager.Death();
+            }
+            //Hit();
+        }
+        
+        
+    }
+    void LookToPlayer(GameObject player){
+        transform.LookAt(player.transform,Vector3.zero*Time.deltaTime);
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position+(Vector3.up*0.5f), transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity)){
+            Debug.DrawRay(transform.position+(Vector3.up*0.5f), transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+            if (hit.transform.CompareTag(Tag.Player)){
+                if (TimeRemain<=0){
+                    Shoot();
+                    TimeRemain=TimeBetweenShooting;
+                }else{
+                    TimeRemain-=Time.deltaTime;
+                }
+            } 
         }
     }
     public void KillTarget(){
         foreach(Collider col in colliders){
             col.enabled=false;
         }
-        Destroy(TheShootBullet);
+        foreach (GameObject bullet in ShootBullets){
+            Destroy(bullet);   
+        }
         animator.SetInteger("State",State_Death);
         //Dlood.Play();
-        DidShoot=true;
-        this.enabled = false;
+        //this.enabled = false;
+        Destroy(this);
     }
 }

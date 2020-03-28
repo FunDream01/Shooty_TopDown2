@@ -835,10 +835,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13ac1cc43fc33f546b4a335a94eb6622, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RunningTarget: 0
+  TimeBetweenShooting: 2
   BulletSpace: 0.4
   Bullet: {fileID: 7154426361311775126, guid: fe02a60f3aae0c0418daa2acf8854d1c, type: 3}
-  TheShootBullet: {fileID: 0}
-  DidShoot: 0
+  ShootBullets: []
   GunShot: {fileID: 5070921865417636181}
 --- !u!136 &1785096902030300102
 CapsuleCollider:

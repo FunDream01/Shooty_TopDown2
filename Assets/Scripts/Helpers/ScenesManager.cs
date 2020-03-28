@@ -69,7 +69,7 @@ public class ScenesManager : MonoBehaviour
             LevelIndicator_Screen.SetActive(true);
             
             player=FindObjectOfType<PlayerManager>();
-            player.StartGame();
+            player.StartGame(1);
         }
     }
     public void UpdateLevelIndicator(int ReachedRoom){

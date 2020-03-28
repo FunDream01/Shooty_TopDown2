@@ -18,7 +18,8 @@ public class PlayerBulletController3 : MonoBehaviour{
     {
         MoveForward = true;
         Player = FindObjectOfType<PlayerManager>();
-        NumberOfTargets=FindObjectOfType<RoomManager>().Targets;
+        //NumberOfTargets=FindObjectOfType<RoomManager>().Targets;
+        NumberOfTargets=FindObjectsOfType<TargetManager>().Length;
     }
     void Update()
     {
@@ -58,8 +59,11 @@ public class PlayerBulletController3 : MonoBehaviour{
     private void OnCollisionEnter(Collision other){
         if (other.gameObject.tag==(Tag.Target)){
             other.gameObject.SendMessage("KillTarget");
-             NumberOfTargets--;
-            if (NumberOfTargets==0){
+            //NumberOfTargets--;
+            
+            NumberOfTargets=FindObjectsOfType<TargetManager>().Length;
+            if (NumberOfTargets==1)// targets all killed
+            {
                 Player.FinishRoom();
                 
                 DestroyEffect.Play();
@@ -70,13 +74,10 @@ public class PlayerBulletController3 : MonoBehaviour{
             DestroyEffect.Play();
             Destroy(other.gameObject);
         }else if (other.gameObject.tag==(Tag.TNT)){
-            other.gameObject.GetComponent<TNT>().explosion.Play();
-            Player.Lose();
-            Destroy(this.gameObject);
-            //Destroy(other.gameObject);
+            
         }
         else{
-            Player.Lose();
+            Player.StartGame(0.5f);
             //DestroyEffect.Play();
             GameObject _Destroy= Instantiate(DestroyEffect.gameObject,transform.position,Quaternion.identity);
             _Destroy.GetComponent<ParticleSystem>().Play();
