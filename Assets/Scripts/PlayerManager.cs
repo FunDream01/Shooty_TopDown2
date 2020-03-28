@@ -90,6 +90,11 @@ public class PlayerManager : MonoBehaviour{
     }
     public void Lose(){
         analytics.LogLevelFailed(scenesManager.RoomsIndex[ReachedRoom]);
+        animator.SetInteger("State",State_Idle);
+        StopMoving=true;
+        ScenesManager.Instance.SetActive_Loss_Screen(true);
+    }public void Death(){
+        analytics.LogLevelFailed(scenesManager.RoomsIndex[ReachedRoom]);
         animator.SetInteger("State",State_Death);
         StopMoving=true;
         ScenesManager.Instance.SetActive_Loss_Screen(true);
@@ -115,7 +120,7 @@ public class PlayerManager : MonoBehaviour{
     }
     private void OnCollisionEnter(Collision other) {
         if (other.gameObject.tag==(Tag.TargetBullet)||other.gameObject.tag==(Tag.PlayerBullet)){
-            Lose();
+            Death();
             Destroy(other.gameObject);
         }
     }

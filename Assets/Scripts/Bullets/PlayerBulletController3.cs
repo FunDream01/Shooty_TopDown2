@@ -69,6 +69,11 @@ public class PlayerBulletController3 : MonoBehaviour{
         else if (other.gameObject.tag==(Tag.TargetBullet)){
             DestroyEffect.Play();
             Destroy(other.gameObject);
+        }else if (other.gameObject.tag==(Tag.TNT)){
+            other.gameObject.GetComponent<TNT>().explosion.Play();
+            Player.Lose();
+            Destroy(this.gameObject);
+            //Destroy(other.gameObject);
         }
         else{
             Player.Lose();

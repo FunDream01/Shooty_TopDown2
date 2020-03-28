@@ -9,6 +9,7 @@ TagManager:
   - TargetBullet
   - Entrance
   - Exit
+  - TNT
   layers:
   - Default
   - TransparentFX

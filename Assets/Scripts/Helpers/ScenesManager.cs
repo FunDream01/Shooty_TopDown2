@@ -6,7 +6,6 @@ using UnityEngine;
 using TMPro;
 public class ScenesManager : MonoBehaviour
 {
-    public bool Tutorial;
     public Tutorial[] tutorial;
     public static ScenesManager Instance;
     public GameObject Win_Screen;
@@ -44,7 +43,7 @@ public class ScenesManager : MonoBehaviour
         }
         else
         { 
-            PlayerPrefs.SetInt("PlayerLevel",1);
+            PlayerPrefs.SetInt("PlayerLevel",0);
         }
         if (PlayerLevel<tutorial.Length)
         {

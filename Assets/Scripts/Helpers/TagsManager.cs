@@ -13,4 +13,5 @@ public class Tag{
     public const string TargetBullet="TargetBullet";
     public const string Entrance="Entrance";
     public const string Exit="Exit";
+    public const string TNT="TNT";
 }
