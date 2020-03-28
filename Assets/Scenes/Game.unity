@@ -945,7 +945,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a99ac7ae7c209c84599841b2646214c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Tutorial: 1
   tutorial:
   - Rooms:
     - {fileID: 3358357648228933584, guid: 8532c79810fc2854abc4c96f5268ed1e, type: 3}
