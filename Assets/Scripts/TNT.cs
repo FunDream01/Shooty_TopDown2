@@ -9,9 +9,11 @@ public class TNT : MonoBehaviour
     public TargetManager[]Targets;
     public float distance;
     public List<TargetManager> TargetsNear = new List<TargetManager>();
+    private PlayerManager player;
     // Start is called before the first frame update
     void Start()
     {
+        player=FindObjectOfType<PlayerManager>();
         explosion=transform.GetComponentInChildren<ParticleSystem>();
         Targets=FindObjectsOfType<TargetManager>();
         GetInactiveInRadius();

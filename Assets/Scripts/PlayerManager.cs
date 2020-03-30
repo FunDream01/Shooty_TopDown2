@@ -27,10 +27,14 @@ public class PlayerManager : MonoBehaviour{
     private int State_Death=5;
     private Analytics analytics;
     private ScenesManager scenesManager;
+    public int NumberOfTargets;
     [HideInInspector]
     public  bool isDead=false;
-    
+    private void Awake() {
+        NumberOfTargets=FindObjectsOfType<TargetManager>().Length;
+    }
     void Start(){
+        
         analytics=FindObjectOfType<Analytics>();
         scenesManager=FindObjectOfType<ScenesManager>();
         Body=GetComponent<Rigidbody>();
@@ -67,6 +71,7 @@ public class PlayerManager : MonoBehaviour{
     }
     void PlayerReset(){
         
+        NumberOfTargets=FindObjectsOfType<TargetManager>().Length;
         analytics.LogLevelStarted(scenesManager.RoomsIndex[ReachedRoom]);
         this.transform.rotation=Quaternion.identity;
         Vector3 Enter=FindObjectOfType<RoomManager>().EntrancePostion;

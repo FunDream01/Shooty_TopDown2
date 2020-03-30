@@ -23,7 +23,7 @@ public class ScenesManager : MonoBehaviour
     private GameObject ActiveRoom;
     private int PrefapIndex;
     public PlayerManager player;
-    public int PlayerLevel=1;
+    public int PlayerLevel=0;
     void Awake(){
         Instance=this;
         Load(Tag.Player);

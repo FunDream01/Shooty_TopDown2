@@ -19,7 +19,9 @@ public class TargetManager : MonoBehaviour{
     private int State_Hit=3;
     private int State_Death=4;
     public ParticleSystem GunShot;
+    private PlayerManager player;
     void Start(){
+        player=FindObjectOfType<PlayerManager>();
         animator=GetComponent<Animator>();
         colliders=GetComponents<Collider>();
     } 
@@ -92,8 +94,14 @@ public class TargetManager : MonoBehaviour{
             Destroy(bullet);   
         }
         animator.SetInteger("State",State_Death);
+        player.NumberOfTargets--;
         //Dlood.Play();
         //this.enabled = false;
+        if (player.NumberOfTargets==0)// targets all killed
+        {
+            player.FinishRoom();
+                
+        } 
         Destroy(this);
     }
 }

@@ -59,10 +59,7 @@ public class PlayerBulletController3 : MonoBehaviour{
     private void OnCollisionEnter(Collision other){
         if (other.gameObject.tag==(Tag.Target)){
             other.gameObject.SendMessage("KillTarget");
-            //NumberOfTargets--;
-            
-            NumberOfTargets=FindObjectsOfType<TargetManager>().Length;
-            if (NumberOfTargets==1)// targets all killed
+            if (Player.NumberOfTargets==0)// targets all killed
             {
                 Player.FinishRoom();
                 
@@ -86,7 +83,8 @@ public class PlayerBulletController3 : MonoBehaviour{
     }
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.CompareTag(Tag.Entrance)||other.gameObject.CompareTag(Tag.Exit)){
-            Player.Lose();
+            
+            Player.StartGame(0.5f);
             
             DestroyEffect.Play();
             Destroy(this.gameObject);
