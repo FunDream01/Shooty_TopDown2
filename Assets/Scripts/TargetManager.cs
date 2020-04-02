@@ -26,7 +26,7 @@ public class TargetManager : MonoBehaviour{
         colliders=GetComponents<Collider>();
     } 
     void Shoot(){
-        //if (!DidShoot){
+        if (!FindObjectOfType<PlayerManager>().StopMoving){
             GunShot.Play();
             animator.SetInteger("State",State_Shoot);
             GameObject TheShootBullet= Instantiate(Bullet,transform.position+(Vector3.up*0.5f)+
@@ -34,7 +34,7 @@ public class TargetManager : MonoBehaviour{
             TheShootBullet.transform.parent=this.transform.parent;
             ShootBullets.Add(TheShootBullet);
             //DidShoot=true;
-        //}
+        }
     }
     private IEnumerator Hit(PlayerManager player)
     {
@@ -94,14 +94,10 @@ public class TargetManager : MonoBehaviour{
             Destroy(bullet);   
         }
         animator.SetInteger("State",State_Death);
-        player.NumberOfTargets--;
-        //Dlood.Play();
-        //this.enabled = false;
-        if (player.NumberOfTargets==0)// targets all killed
-        {
-            player.FinishRoom();
-                
-        } 
+        FindObjectOfType<PlayerManager>().NumberOfTargets--;
+        if (FindObjectOfType<PlayerManager>().NumberOfTargets==0){
+            FindObjectOfType<PlayerManager>().FinishRoom();
+        }
         Destroy(this);
     }
 }

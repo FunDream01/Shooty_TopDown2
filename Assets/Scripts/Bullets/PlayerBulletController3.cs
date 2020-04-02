@@ -7,7 +7,6 @@ public class PlayerBulletController3 : MonoBehaviour{
     public Transform RightAnchorPoint;
     public Transform LeftAnchorPoint;
     bool MoveForward=true;
-    public int NumberOfTargets;
     private PlayerManager Player;
     //Vars for Laith's Controller System
     private Vector2 LastTapPos;
@@ -18,8 +17,6 @@ public class PlayerBulletController3 : MonoBehaviour{
     {
         MoveForward = true;
         Player = FindObjectOfType<PlayerManager>();
-        //NumberOfTargets=FindObjectOfType<RoomManager>().Targets;
-        NumberOfTargets=FindObjectsOfType<TargetManager>().Length;
     }
     void Update()
     {
@@ -61,24 +58,30 @@ public class PlayerBulletController3 : MonoBehaviour{
             other.gameObject.SendMessage("KillTarget");
             if (Player.NumberOfTargets==0)// targets all killed
             {
-                Player.FinishRoom();
+                //Player.FinishRoom();
                 
                 DestroyEffect.Play();
                 Destroy(this.gameObject);
-            } 
+            } else{
+                
+                Player.StartGame(0.5f);
+                Destroy(this.gameObject);
+            }
         }
         else if (other.gameObject.tag==(Tag.TargetBullet)){
             DestroyEffect.Play();
             Destroy(other.gameObject);
-        }else if (other.gameObject.tag==(Tag.TNT)){
-            
+        }else if (other.gameObject.tag==(Tag.TNT))
+        {
         }
         else{
-            Player.StartGame(0.5f);
-            //DestroyEffect.Play();
-            GameObject _Destroy= Instantiate(DestroyEffect.gameObject,transform.position,Quaternion.identity);
-            _Destroy.GetComponent<ParticleSystem>().Play();
-            Destroy(this.gameObject);
+            if(other.gameObject.tag!=(Tag.Player)){
+                Player.StartGame(0.5f);
+                //DestroyEffect.Play();
+                GameObject _Destroy= Instantiate(DestroyEffect.gameObject,transform.position,Quaternion.identity);
+                _Destroy.GetComponent<ParticleSystem>().Play();
+                Destroy(this.gameObject);
+            }
         }
     }
     private void OnTriggerEnter(Collider other) {

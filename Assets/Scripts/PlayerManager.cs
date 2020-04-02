@@ -62,7 +62,6 @@ public class PlayerManager : MonoBehaviour{
     }
     public void StartGame(float time){
         if(isDead==false){
-
             animator.SetInteger("State",State_shoot);
             Speed=initialSpeed;
             StopMoving=true;

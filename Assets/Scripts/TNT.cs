@@ -35,13 +35,24 @@ public class TNT : MonoBehaviour
         GameObject _explosion= Instantiate(explosion.gameObject,transform.position,Quaternion.identity);
         _explosion.GetComponent<ParticleSystem>().Play();
         foreach(TargetManager target in TargetsNear){
+            if (target!=null){
+
             target.KillTarget();
+            }
+
+        }
+        if(player.NumberOfTargets>0){
+            
+            FindObjectOfType<PlayerManager>().StartGame(0.5f);
         }
         this.gameObject.SetActive(false);
     }
     private void OnTriggerEnter(Collider other) {
 
         if (other.gameObject.tag==(Tag.PlayerBullet)){
+            
+
+            Destroy(other.gameObject);
             Explode();
         }
     }
