@@ -71,7 +71,7 @@ public class PlayerManager : MonoBehaviour{
     void PlayerReset(){
         
         NumberOfTargets=FindObjectsOfType<TargetManager>().Length;
-        analytics.LogLevelStarted(scenesManager.RoomsIndex[ReachedRoom]);
+        StartCoroutine(analytics.waitToCall(analytics.LogLevelStarted,scenesManager.RoomsIndex[ReachedRoom]));
         this.transform.rotation=Quaternion.identity;
         Vector3 Enter=FindObjectOfType<RoomManager>().EntrancePostion;
         this.transform.position=new Vector3(Enter.x,0,Enter.z);
@@ -86,7 +86,8 @@ public class PlayerManager : MonoBehaviour{
             if (TheShootBullet!=null){
                 Lose();
             }else{
-                analytics.LogLevelSucceeded(scenesManager.RoomsIndex[ReachedRoom]);
+                
+                StartCoroutine(analytics.waitToCall(analytics.LogLevelSucceeded,scenesManager.RoomsIndex[ReachedRoom]));
                 ReachedRoom++;
                 NextLode();
             }
@@ -100,13 +101,14 @@ public class PlayerManager : MonoBehaviour{
     }
     public void Lose(){
        // if (isDeath==false){
-            analytics.LogLevelFailed(scenesManager.RoomsIndex[ReachedRoom]);
+           
+            StartCoroutine(analytics.waitToCall(analytics.LogLevelFailed,scenesManager.RoomsIndex[ReachedRoom]));
             animator.SetInteger("State",State_Idle);
             StopMoving=true;
             ScenesManager.Instance.SetActive_Loss_Screen(true);
        // }
     }public void Death(){
-        analytics.LogLevelFailed(scenesManager.RoomsIndex[ReachedRoom]);
+            StartCoroutine(analytics.waitToCall(analytics.LogLevelFailed,scenesManager.RoomsIndex[ReachedRoom]));
         animator.SetInteger("State",State_Death);
         StopMoving=true;
         isDead=true;
