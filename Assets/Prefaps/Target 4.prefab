@@ -836,6 +836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RunningTarget: 0
+  RunningSpeed: 0.5
   TimeBetweenShooting: 2
   BulletSpace: 0.4
   Bullet: {fileID: 7154426361311775126, guid: fe02a60f3aae0c0418daa2acf8854d1c, type: 3}
@@ -866,7 +867,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 4.25
+  m_Radius: 6
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8082927170520659483
 GameObject:

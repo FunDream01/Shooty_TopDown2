@@ -16,9 +16,9 @@ MonoBehaviour:
   clientTokens:
   - 
   appIds:
-  - 0
+  - '193665745419151 '
   appLabels:
-  - App Name
+  - Shooty
   cookie: 1
   logging: 1
   status: 1
