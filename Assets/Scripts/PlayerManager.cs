@@ -73,7 +73,8 @@ public class PlayerManager : MonoBehaviour{
         NumberOfTargets=FindObjectsOfType<TargetManager>().Length;
         StartCoroutine(analytics.waitToCall(analytics.LogLevelStarted,scenesManager.RoomsIndex[ReachedRoom]));
         this.transform.rotation=Quaternion.identity;
-        Vector3 Enter=FindObjectOfType<RoomManager>().EntrancePostion;
+        //Vector3 Enter=FindObjectOfType<RoomManager>().EntrancePostion;
+        Vector3 Enter=GameObject.FindGameObjectWithTag(Tag.Entrance).transform.position;
         this.transform.position=new Vector3(Enter.x,0,Enter.z);
         //StartGame();
     }

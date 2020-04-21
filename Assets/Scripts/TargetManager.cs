@@ -48,7 +48,7 @@ public class TargetManager : MonoBehaviour{
     }
     void OnTriggerStay(Collider other){
         // When player is near --> look at player
-        if (other.CompareTag(Tag.Player)){
+        if (other.CompareTag(Tag.Player)&&!player.StopMoving){
             if(RunningTarget){
                 RunToPlayer(other.gameObject);
             }else{
