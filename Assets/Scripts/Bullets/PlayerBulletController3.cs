@@ -55,7 +55,7 @@ public class PlayerBulletController3 : MonoBehaviour{
    
     private void OnCollisionEnter(Collision other){
         if (other.gameObject.tag==(Tag.Target)){
-            other.gameObject.SendMessage("KillTarget");
+            other.gameObject.GetComponent<TargetManager>().KillTarget();
             if (Player.NumberOfTargets==0)// targets all killed
             {
                 //Player.FinishRoom();
