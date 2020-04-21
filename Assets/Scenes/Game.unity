@@ -1007,6 +1007,7 @@ MonoBehaviour:
   - {fileID: 7427538401054999393, guid: 6f9e962b530ec6d42b8681714a7598be, type: 3}
   - {fileID: 7427538401054999393, guid: adaec3d388bfbbd4dbf51fb4bc4030a6, type: 3}
   - {fileID: 7427538401054999393, guid: c67fe31dd23e3b640bc1908b92d797b5, type: 3}
+  - {fileID: 7427538401054999393, guid: e53b93f001884204585cfb64b83ed32c, type: 3}
   player: {fileID: 0}
   PlayerLevel: 0
 --- !u!4 &1672875102
