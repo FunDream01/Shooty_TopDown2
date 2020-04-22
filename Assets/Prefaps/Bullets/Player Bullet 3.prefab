@@ -86,8 +86,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3998614776841525034}
   m_LocalRotation: {x: -0.7071068, y: 0.7071068, z: 0, w: 0}
-  m_LocalPosition: {x: -0, y: -0.0159, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalPosition: {x: -0, y: -0.0293, z: 0}
+  m_LocalScale: {x: 1.8002476, y: 1.8002476, z: 1.8002476}
   m_Children: []
   m_Father: {fileID: 7095455119949705585}
   m_RootOrder: 0
@@ -4900,7 +4900,7 @@ Transform:
   m_GameObject: {fileID: 7095455119949505177}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.5, z: 0.5}
-  m_LocalScale: {x: 25, y: 25, z: 25}
+  m_LocalScale: {x: 46.41817, y: 46.41817, z: 46.41817}
   m_Children:
   - {fileID: 3998614776841525029}
   m_Father: {fileID: 7403682066900525497}
@@ -4996,7 +4996,7 @@ TrailRenderer:
   m_Time: 15.95
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 2
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -5115,10 +5115,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7698043a816213498181c1ff7b6d3e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 1.5
+  forwardSpeed: 1.15
   RightAnchorPoint: {fileID: 1553539769758655966}
   LeftAnchorPoint: {fileID: 1553539771127263854}
-  NumberOfTargets: 0
   RotationSpeed: 0.6
   DestroyEffect: {fileID: 4762366363166847096}
 --- !u!136 &2483426886350831236

@@ -72,7 +72,8 @@ MonoBehaviour:
   ReachedRoom: 0
   StopMoving: 1
   RemainTargets: 0
-  GunShot: {fileID: 5487972703589204547, guid: debbec5fc182cc743b2b902c59a77014, type: 3}
+  GunShotFX: {fileID: 5487972703589204547, guid: debbec5fc182cc743b2b902c59a77014,
+    type: 3}
   NumberOfTargets: 0
   isDead: 0
 --- !u!54 &413248133501148020
@@ -112,6 +113,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2607511819645527802}
     m_Modifications:
+    - target: {fileID: -5149130592937683433, guid: 7cbb379333c169f4f9630cfc39cdaade,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f9ce9a4b6407db24a9498e1dfefffd58, type: 2}
     - target: {fileID: -4216859302048453862, guid: 7cbb379333c169f4f9630cfc39cdaade,
         type: 3}
       propertyPath: m_LocalPosition.x

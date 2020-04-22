@@ -111,7 +111,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &7450419630968944482
 Transform:
@@ -153,7 +153,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 164c20e9e9047ea4789150dea5bd355f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -838,10 +838,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 56d689e4c5e664842a3001ee52106e2c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6e4a3eaa4680fd848ba3cd878bb6948e, type: 2}
     - target: {fileID: -927199367670048503, guid: 56d689e4c5e664842a3001ee52106e2c,
         type: 3}
       propertyPath: m_Name
       value: Level04
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 56d689e4c5e664842a3001ee52106e2c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56d689e4c5e664842a3001ee52106e2c, type: 3}

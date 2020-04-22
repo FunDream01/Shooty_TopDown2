@@ -86,7 +86,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RunningTarget: 1
-  RunningSpeed: 0.5
+  RunningSpeed: 0.75
   TimeBetweenShooting: 2
   BulletSpace: 0.4
   Bullet: {fileID: 7154426361311775126, guid: fe02a60f3aae0c0418daa2acf8854d1c, type: 3}
@@ -117,7 +117,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 6
+  m_Radius: 9
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1572866244494043307
 PrefabInstance:
@@ -282,6 +282,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4974530901428142654}
     m_Modifications:
+    - target: {fileID: -5149130592937683433, guid: 7cbb379333c169f4f9630cfc39cdaade,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9664add184f9dba44a0a7edcd08061eb, type: 2}
     - target: {fileID: -4216859302048453862, guid: 7cbb379333c169f4f9630cfc39cdaade,
         type: 3}
       propertyPath: m_LocalPosition.x
