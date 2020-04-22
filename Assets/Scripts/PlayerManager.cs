@@ -76,6 +76,7 @@ public class PlayerManager : MonoBehaviour{
         //Vector3 Enter=FindObjectOfType<RoomManager>().EntrancePostion;
         Vector3 Enter=GameObject.FindGameObjectWithTag(Tag.Entrance).transform.position;
         this.transform.position=new Vector3(Enter.x,0,Enter.z);
+        StopMoving=true;
         //StartGame();
     }
     void StartRunning(){
