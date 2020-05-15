@@ -25,21 +25,35 @@ MonoBehaviour:
   UserMessagesSubmitted: 0
   UserMessagesFailed: 0
   CustomArea: 
-  gameKey: []
-  secretKey: []
-  Build: []
-  SelectedPlatformStudio: []
-  SelectedPlatformGame: []
-  SelectedPlatformGameID: 
-  SelectedStudio: 
-  SelectedGame: 
-  NewVersion: 
-  Changes: 
-  SignUpOpen: 1
+  gameKey:
+  - aac36436372d47457a195159c63cb339
+  secretKey:
+  - f1e6daa96cf45f9cf5e79cf98d65bcdc9243fd76
+  Build:
+  - 0.1
+  SelectedPlatformStudio:
+  - Abdulrahman adham
+  SelectedPlatformGame:
+  - Shooty
+  SelectedPlatformGameID: 898d0100
+  SelectedStudio: 01000000
+  SelectedGame: 0d000000
+  NewVersion: 6.1.0
+  Changes: '6.1.0
+
+    - added new impression event, see documentation page for more
+    info (android, ios)
+
+
+    6.0.15
+
+    - added support for android instant apps
+    (android)'
+  SignUpOpen: 0
   StudioName: 
-  GameName: 
-  EmailGA: 
-  IntroScreen: 1
+  GameName: Shooty
+  EmailGA: abdulrhman1a1@gmail.com
+  IntroScreen: 0
   InfoLogEditor: 1
   InfoLogBuild: 1
   VerboseLogBuild: 0
@@ -52,9 +66,9 @@ MonoBehaviour:
   CustomDimensions03: []
   ResourceItemTypes: []
   ResourceCurrencies: []
-  LastCreatedGamePlatform: 0
-  Platforms: 
-  CurrentInspectorState: 0
+  LastCreatedGamePlatform: -1
+  Platforms: 08000000
+  CurrentInspectorState: 1
   ClosedHints: 
   DisplayHints: 0
   DisplayHintsScrollState: {x: 0, y: 0}
@@ -80,7 +94,7 @@ MonoBehaviour:
   IncludeGooglePlay: 1
   FpsCriticalThreshold: 20
   FpsCirticalSubmitInterval: 1
-  PlatformFoldOut: 
+  PlatformFoldOut: 01
   CustomDimensions01FoldOut: 0
   CustomDimensions02FoldOut: 0
   CustomDimensions03FoldOut: 0
